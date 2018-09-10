@@ -1,0 +1,36 @@
+[
+  {
+    "name": "${name}",
+    "image": "${image}",
+    "cpu": ${cpu},
+    "logConfiguration": {
+      "logDriver": "awslogs",
+      "options": {
+        "awslogs-group": "${awslogs_group}",
+        "awslogs-region": "${awslogs_region}",
+        "awslogs-stream-prefix": "${awslogs_stream_prefix}"
+      }
+    },
+    "portMappings": [
+      {
+        "hostPort": ${service_host_port},
+        "protocol": "tcp",
+        "containerPort": ${service_container_port}
+      },
+      {
+        "hostPort": "29418",
+        "protocol": "tcp",
+        "containerPort": "29418"
+      }
+    ],
+    "command": [
+    ],
+    "environment": [
+
+    ],
+    "mountPoints": [],
+    "workingDirectory": "${working_directory}",
+    "volumesFrom": [],
+    "essential": true
+  }
+]
