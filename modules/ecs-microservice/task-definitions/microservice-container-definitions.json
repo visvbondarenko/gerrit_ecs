@@ -18,16 +18,13 @@
         "containerPort": ${service_container_port}
       },
       {
-        "hostPort": "29418",
+        "hostPort": 29418,
         "protocol": "tcp",
-        "containerPort": "29418"
+        "containerPort": 29418
       }
     ],
-    "command": [
-    ],
-    "environment": [
-
-    ],
+    "command": [],
+    "environment": [],
     "mountPoints": [],
     "workingDirectory": "${working_directory}",
     "volumesFrom": [],
