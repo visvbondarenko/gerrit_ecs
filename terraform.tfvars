@@ -1,5 +1,4 @@
 aws_region                 = "us-east-1"
-
 account_shorthand          = "devqa"
 environment                = "fsdevqa"
 project                    = ""
