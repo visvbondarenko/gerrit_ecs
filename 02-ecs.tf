@@ -42,7 +42,7 @@ module "ecs" {
 }
 
 data "aws_secretsmanager_secret" "ecs_host_key" {
-  name = "fs/${lower(var.environment)}/ecs/ssh"
+  name = "${lower(var.environment)}/ecs/ssh"
 }
 
 resource "aws_secretsmanager_secret_version" "ecs_host_key" {

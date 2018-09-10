@@ -23,7 +23,7 @@ module "bastion" {
 
 # bastion ssh keys
 data "aws_secretsmanager_secret" "bastion_host_key" {
-  name = "product/${lower(var.environment)}/bastion/ssh"
+  name = "${lower(var.environment)}/bastion/ssh"
 }
 
 resource "aws_secretsmanager_secret_version" "bastion_host_key" {
