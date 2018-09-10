@@ -1,6 +1,6 @@
 aws_region                 = "us-east-1"
 account_shorthand          = "devqa"
-environment                = "gerrit"
+environment                = "fsgerrit"
 project                    = ""
 service                    = "gerrit"
 owner                      = "mike.mcclintock@thetrackr.com"
