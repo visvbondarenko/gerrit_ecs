@@ -16,12 +16,6 @@ resource "aws_ecs_task_definition" "microservice" {
   container_definitions = "${data.template_file.microservice_container_definitions.rendered}"
 }
 
-resource "null_resource" "test_template" {
-  triggers = {
-    json = "${data.template_file.microservice_container_definitions.rendered}"
-  }
-}
-
 data "template_file" "microservice_container_definitions" {
   template = "${file("${path.module}/task-definitions/microservice-container-definitions.json")}"
 
