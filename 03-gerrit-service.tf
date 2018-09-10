@@ -42,14 +42,14 @@ module "gerrit-service" {
   service_container_port = 8080
 }
 
-data "aws_secretsmanager_secret" "cloud-entity-docker-image" {
-  name = "${lower("${var.environment}/${var.service}/cloud-entity/docker_image")}"
+data "aws_secretsmanager_secret" "gerrit" {
+  name = "${lower("${var.environment}/${var.service}/docker_image")}"
 }
 
-data "aws_secretsmanager_secret_version" "cloud-entity-docker-image" {
-  secret_id = "${data.aws_secretsmanager_secret.cloud-entity-docker-image.id}"
+data "aws_secretsmanager_secret_version" "gerrit" {
+  secret_id = "${data.aws_secretsmanager_secret.gerrit.id}"
 }
 
 data "external" "cloud-entity-docker-image" {
-  program = [ "echo", "${data.aws_secretsmanager_secret_version.cloud-entity-docker-image.secret_string}" ]
+  program = [ "echo", "${data.aws_secretsmanager_secret_version.gerrit.secret_string}" ]
 }

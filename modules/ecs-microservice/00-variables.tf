@@ -15,7 +15,7 @@ variable "lb_target_group_arn"        {}
 
 variable "service_cpu"                { default = "256" }
 variable "service_memory"             { default = "256" }
-variable "service_working_dir"        { default = "/application" }
+variable "service_working_dir"        { default = "/ecs" }
 
 variable "service_host_port"          {}
 variable "service_container_port"     {}
