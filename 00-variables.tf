@@ -28,3 +28,8 @@ variable "ecs_desired_size"       { default = 1 }
 variable "ecs_instance_type"      { default = "t2.micro" }
 variable "ecs_instance_root_size" { default = 10 }
 variable "ecs_enable_ssh"         { default = false }
+
+variable "domain_hosted_zone" {}
+variable "dns_alias"          { default = "gerrit" }
+variable "alb_ssl_cert"       {}
+variable "private_dns_zone"   { default = false }

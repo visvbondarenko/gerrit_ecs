@@ -20,6 +20,9 @@ vpc_one_nat_gateway_per_az = true
 
 tags = {}
 
+domain_hosted_zone  = "dev.aderoio.com."
+alb_ssl_cert        = "*.dev.aderoio.com"
+
 ecs_instance_type = "t2.small"
 ecs_enable_ssh    = true
 ecs_min_size      = 1

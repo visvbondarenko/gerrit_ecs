@@ -78,3 +78,20 @@ resource "aws_security_group_rule" "egress_allow_all" {
 
   security_group_id = "${module.ecs.container_instance_security_group_id}"
 }
+
+data "aws_route53_zone" "zone" {
+  name         = "${var.domain_hosted_zone}"
+  private_zone = "${var.private_dns_zone}"
+}
+
+resource "aws_route53_record" "gerrit" {
+  zone_id = "${data.aws_route53_zone.zone.zone_id}"
+  name    = "${var.dns_alias}"
+  type    = "A"
+
+  alias {
+    name                   = "${module.gerrit-lb.lb_dns_name}"
+    zone_id                = "${module.gerrit-lb.lb_dns_name}"
+    evaluate_target_health = true
+  }
+}
