@@ -90,8 +90,8 @@ resource "aws_route53_record" "gerrit" {
   type    = "A"
 
   alias {
-    name                   = "${var.dns_alias}"
-    zone_id                = "${module.gerrit-lb.lb_dns_name}"
+    name                   = "${module.gerrit-lb.lb_dns_name}"
+    zone_id                = "${var.dns_alias}"
     evaluate_target_health = true
   }
 }
