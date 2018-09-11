@@ -18,10 +18,6 @@ vpc_enable_nat_gateway     = true
 vpc_single_nat_gateway     = false
 vpc_one_nat_gateway_per_az = true
 
-domain_hosted_zone   = "dev.aderoio.com."
-dns_alias_jenkins    = "gerrit"
-alb_ssl_cert_jenkins = "*.dev.aderoio.com"
-
 tags = {}
 
 ecs_instance_type = "t2.small"
