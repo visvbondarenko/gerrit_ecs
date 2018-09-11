@@ -43,7 +43,7 @@ module "gerrit-service" {
 }
 
 data "aws_secretsmanager_secret" "gerrit" {
-  name = "${lower("${var.environment}/${var.service}/docker_image")}"
+  name = "${lower("${var.account_shorthand}/${var.environment}/${var.service}/docker_image")}"
 }
 
 data "aws_secretsmanager_secret_version" "gerrit" {
