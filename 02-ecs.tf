@@ -39,6 +39,7 @@ module "ecs" {
     "GroupTerminatingInstances",
     "GroupTotalInstances"
   ]
+  instance_type = "t2.medium"
 }
 
 data "aws_secretsmanager_secret" "ecs_host_key" {
@@ -90,8 +91,8 @@ resource "aws_route53_record" "gerrit" {
   type    = "A"
 
   alias {
-    name                   = "${module.gerrit-lb.lb_dns_name}"
-    zone_id                = "${module.gerrit-lb.lb_zone_id}"
+    name                   = "${aws_alb.gerrit.dns_name}"
+    zone_id                = "${aws_alb.gerrit.zone_id}"
     evaluate_target_health = true
   }
 }

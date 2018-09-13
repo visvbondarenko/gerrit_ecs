@@ -1,5 +1,5 @@
 module "bastion" {
-  source = "./modules/bastion"
+  source = "git@github.com:TrackRbyPhoneHalo/it-fs-terraform-mod-bastion.git?ref=master"
 
   lookup_latest_ami = true
 
@@ -23,7 +23,7 @@ module "bastion" {
 
 # bastion ssh keys
 data "aws_secretsmanager_secret" "bastion_host_key" {
-  name = "${lower(var.environment)}/bastion/ssh_new"
+  name = "${lower("${var.account_shorthand}/${var.environment}/gerrit/bastion/ssh")}"
 }
 
 resource "aws_secretsmanager_secret_version" "bastion_host_key" {
